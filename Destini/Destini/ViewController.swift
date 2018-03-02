@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // Our strings
+    // Story Line
+    // Stories fill the storyTextView tag and promp the user to pick a response
+    // answer(a) or answer(b) are chosen and used to prompt a different story line chunk
     let story1 = "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: \"Need a ride, boy?\"."
     let answer1a = "I\'ll hop in. Thanks for the help!"
     let answer1b = "Better ask him if he\'s a murderer first."
-    
     
     let story2 = "He nods slowly, unphased by the question."
     let answer2a = "At least he\'s honest. I\'ll climb in."
@@ -30,21 +31,22 @@ class ViewController: UIViewController {
     
     
     // UI Elements linked to the storyboard
-    @IBOutlet weak var topButton: UIButton!         // Has TAG = 1
-    @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
-    @IBOutlet weak var storyTextView: UILabel!
-    @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var topButton: UIButton!         // Buttons on the interface, used to route new stories being displayed // TAG 1
+    @IBOutlet weak var bottomButton: UIButton!      // Buttons on the interface, used to route new stories being displayed // TAG 2
+    @IBOutlet weak var storyTextView: UILabel!      // StoryView is filled with story chunks according to suer prompts to the UIButtons
+
+    @IBOutlet weak var restartButton: UIButton!     // restartButton is used on the restart method to restart the app
     
     // TODO Step 5: Initialise instance variables here
     
-        var storyIndex = 1
+        var storyIndex = 1                          // storyIndex first home
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // TODO Step 3: Set the text for the storyTextView, topButton, bottomButton, and to T1_Story, T1_Ans1, and T1_Ans2
         
-        restart()
+        restart()                                   // restarts the app on first load
 
     }
 
@@ -54,7 +56,7 @@ class ViewController: UIViewController {
     
         // TODO Step 4: Write an IF-Statement to update the views
         
-        if sender.tag == 1 && (storyIndex == 1 || storyIndex == 2) {
+        if sender.tag == 1 && (storyIndex == 1 || storyIndex == 2) {    
             storyTextView.text = story3
             topButton.setTitle(answer3a, for: .normal)
             bottomButton.setTitle(answer3b, for: .normal)
