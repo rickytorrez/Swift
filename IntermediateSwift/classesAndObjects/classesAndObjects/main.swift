@@ -10,7 +10,17 @@ import Foundation
 
 let myCar = Car()
 
-print(myCar.color)
-print(myCar.numberOfSeats)
-print(myCar.typeOfCar)
+let anotherOne = Car(customerChosenColor: "Blue")
+
+myCar.drive()
+
+
+
+//print(myCar.color)
+//print(myCar.numberOfSeats)
+//print(myCar.typeOfCar)
+//
+//print(anotherOne.color)
+//print(anotherOne.numberOfSeats)
+//print(anotherOne.typeOfCar)
 
